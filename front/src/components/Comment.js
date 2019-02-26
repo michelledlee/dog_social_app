@@ -35,20 +35,6 @@ export default class Comment extends Component {
           </Button>
         </Card.Body>
       </Card>
-
-     /*
-      <div className="Comment col-4">
-        <button className="btn btn-info"
-          onClick = {this.onClick}>
-          <span role="img" aria-label="vote for this comment">👍</span>
-        </button>
-        &nbsp;&nbsp;
-        <span>{this.state.votes}</span>
-        &nbsp;&nbsp;
-        <span>{this.props.comment.author}</span>
-        &nbsp;&nbsp;
-        <span>{this.props.comment.text}</span>
-      </div>*/
     );
   }
 }

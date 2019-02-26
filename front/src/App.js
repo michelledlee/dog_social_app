@@ -6,6 +6,7 @@ import Comment from "./Comment.js";
 
 import MainTemplate from "./MainTemplate.js";
 
+
 class App extends Component {
   constructor(props) {
     super(props);

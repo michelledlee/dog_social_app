@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import App from "./components/App.js";
-import AboutPage from "./AboutPage.js";
-import MainTemplate from "./MainTemplate.js";
+import AboutPage from "./components/About.js";
+import MainTemplate from "./components/MainTemplate.js";
 import Landing from "./components/Landing.js";
 import NewPost from "./components/NewPost.js";
 

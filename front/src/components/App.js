@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 
 import "./App.css";
+
 import Jumbo from "./Jumbotron.js";
 
-import Comment from "../Comment.js";
+import Comment from "./Comment.js";
 
-import MainTemplate from "../MainTemplate.js";
+import MainTemplate from "./MainTemplate.js";
 
 class App extends Component {
   constructor(props) {
@@ -77,7 +78,7 @@ class App extends Component {
         <Jumbo />
 
         <div className="App">
-          <h2>Cue your dog</h2>
+          <h2>Create comments</h2>
           <form onSubmit={this.onCreateComment.bind(this)}>
             <div>
               <label htmlFor="inAuthor"> Author

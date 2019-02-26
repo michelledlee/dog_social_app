@@ -57,7 +57,6 @@ router.post('/createMessage', function(req, res, next) {
     res.send(result);
   });
 
-
 });
 
 router.get('/getMessages', function(req, res, next) {
