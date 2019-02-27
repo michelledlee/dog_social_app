@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-export default class Comment extends Component {
+export default class Post extends Component {
   constructor(props) {
     super(props);
 
@@ -25,10 +25,10 @@ export default class Comment extends Component {
       <Card style={{ width: "18rem" }}>
         
         <Card.Body>
-        <Card.Title>{this.props.comment.name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{this.props.comment.breed}</Card.Subtitle>
+        <Card.Title>{this.props.post.name}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">{this.props.post.breed}</Card.Subtitle>
           <Card.Text>
-            <span>{this.props.comment.text}</span>
+            <span>{this.props.post.text}</span>
           </Card.Text>
           <Button variant="outline-danger" onClick = {this.onClick}>
             
@@ -40,8 +40,8 @@ export default class Comment extends Component {
   }
 }
 
-Comment.propTypes = {
-  comment: PropTypes.object.isRequired
+Post.propTypes = {
+  post: PropTypes.object.isRequired
 };
 
 

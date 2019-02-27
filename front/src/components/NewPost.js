@@ -19,25 +19,22 @@ class NewPost extends Component {
     }).then(response => response.json()); // parses response to JSON
   }
 
-  onCreateComment(event) {
+  onCreatePost(event) {
     event.preventDefault();
 
     if (!this.myInputText) {
-      console.log("inText not set not inserting");
       return;
     }
 
     // Post
     console.log("Send the post");
-    this.postData("/api/createMessage", 
+    this.postData("/api/createNewPost", 
       {
         text:this.myInputText.value, 
         name:this.author.value, 
         breed:this.breed.value
       })
       .then((result) => {
-        console.log("Inserted the data!!", result);
-
         //clearing the input
         this.author.value="";
         this.breed.value="";
@@ -55,7 +52,7 @@ class NewPost extends Component {
         <div className="NewPost">
 
           <h2>Create comments</h2>
-          <form onSubmit={this.onCreateComment.bind(this)}>
+          <form onSubmit={this.onCreatePost.bind(this)}>
             <div>
               <label htmlFor="inAuthor"> Name
                 <input

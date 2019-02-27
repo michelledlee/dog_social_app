@@ -4,7 +4,7 @@ import "./style/App.css";
 
 import Jumbo from "./Jumbotron.js";
 
-import Comment from "./Comment.js";
+import Post from "./Post.js";
 
 import MainTemplate from "./MainTemplate.js";
 
@@ -15,8 +15,8 @@ class App extends Component {
     this.myInputText = null;
 
     this.state = {
-      dogs: [],
-      search: 's'
+      posts: [],
+      search: ''
     };
   }
 
@@ -25,22 +25,21 @@ class App extends Component {
   }
 
   reloadData() {
-    fetch("/api/getMessages")
+    fetch("/api/getPosts")
       .then(res => res.json())
       .then(data => {
         this.setState({
-          dogs: data
+          posts: data
         });
       });
   }
 
-  renderComments() {
-    return this.state.dogs.map((c, i) => <Comment key={i++} comment={c} />);
-  }
 
   updateSearch(event) {
     this.setState({search: 
       event.target.value.substring(0, 20)});
+
+    console.log(event.target.value);
   }
 
 
@@ -52,8 +51,14 @@ class App extends Component {
         <div className="App container">
 
           <h1>Posts!</h1>
+          <input type="text"
+          placeholder="Search ..." 
+          value={this.state.search} 
+          onChange={this.updateSearch.bind(this)} />
             
-          <div className="row">{this.renderComments()}</div>        
+          <div className="row">
+          {this.state.posts.map((p, i) => <Post key={i++} post={p} />)}
+          </div>        
 
         </div>
       </MainTemplate>

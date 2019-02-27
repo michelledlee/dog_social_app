@@ -26,12 +26,11 @@ const NoMatch = (location) => (
           <Switch>
             <Route exact path="/" component={Landing} />
           
-
             <Route exact path="/app" component={App} />
             <Route exact path="/app/new" component={NewPost} />
 
-
             <Route path="/about" component={AboutPage} />
+
             <Route component={NoMatch} />
           </Switch>
         </div>

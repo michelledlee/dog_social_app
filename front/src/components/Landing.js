@@ -14,7 +14,7 @@ class Landing extends Component {
       			</Nav.Link>
     		</Nav.Item>
     		<Nav.Item>
-      			<Nav.Link href="/register">Login <i class="fa fa-user"></i>
+      			<Nav.Link href="/login">Login <i class="fa fa-user"></i>
       			</Nav.Link>
     		</Nav.Item>
 
