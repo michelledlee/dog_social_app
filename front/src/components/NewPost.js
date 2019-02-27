@@ -2,31 +2,6 @@ import React, { Component } from "react";
 import MainTemplate from "./MainTemplate.js";
 
 class NewPost extends Component {
-  constructor(props) {
-    super(props);
-
-    this.myInputText = null;
-
-    this.state = {
-      dogs: []
-    };
-  }
-
-  componentDidMount() {
-    this.reloadData();
-  }
-
-  reloadData() {
-    fetch("/api/getMessages")
-      .then(res => res.json())
-      .then(data => {
-        console.log("got data!", data);
-        this.setState({
-          dogs: data
-        });
-      });
-  }
-
  postData(url, data) {
     // Default options are marked with *
     return fetch(url, {
@@ -67,9 +42,8 @@ class NewPost extends Component {
         this.author.value="";
         this.breed.value="";
         this.myInputText.value="";
-        // Redraw
-        console.log("Reload data");
-        this.reloadData();
+
+        this.props.history.push("/app");
       });
   }
 

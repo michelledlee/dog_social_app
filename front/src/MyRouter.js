@@ -18,7 +18,7 @@ const NoMatch = (location) => (
 );
 
 
-export default class MyRouter extends Component {
+ class MyRouter extends Component {
   render() {
     return (
       <Router>
@@ -41,3 +41,5 @@ export default class MyRouter extends Component {
     );
   }
 }
+
+export default MyRouter;

@@ -1,29 +1,25 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
+import Form from "react-bootstrap/Form";
+import FormControl from "react-bootstrap/FormControl";
+import Button from "react-bootstrap/Button";
+import Navbar from "react-bootstrap/Navbar";
 
 export default class MenuBar extends Component {
   render() {
     return (
       <div>
-      
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <NavLink className="navbar-brand" to="/">DogApp</NavLink>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <NavLink className="nav-link" activeClassName="active" exact={true} to="/app"> Main </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" activeClassName="active" to="/about"> About </NavLink>
-              </li>
-            </ul>
-          </div>
-        </nav>
-
+        <Navbar bg="dark" variant="dark">
+          <Navbar.Brand href="/">DogApp</Navbar.Brand>
+          <Nav className="mr-auto">
+            <Nav.Link href="/app">Home</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
+          </Nav>
+          <Form inline>
+            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+            <Button variant="outline-info">Search</Button>
+          </Form>
+        </Navbar>
       </div>
     );
   }
