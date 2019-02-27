@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
 import Jumbotron from "react-bootstrap/Jumbotron";
-import "./jumbotron.css";
+import "./style/jumbotron.css";
 
 class Jumbo extends Component {
   render() {
@@ -12,7 +12,7 @@ class Jumbo extends Component {
           The cuttest dog social app for dogs.
         </p>
         <p>
-          <Button variant="primary"  href="/app/new">Add new</Button>
+          <Button variant="primary"  href="/app/new">Add new post</Button>
         </p>
       </Jumbotron>
     );
