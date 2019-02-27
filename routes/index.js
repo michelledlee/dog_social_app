@@ -50,7 +50,8 @@ function createComment(c, callback) {
 
 router.post('/createMessage', function(req, res, next) {
   createComment({
-    text:req.body.text
+    text:req.body.text,
+    name:req.body.name
   }, function (result) {
 
     console.log("Inserted, sending result");
