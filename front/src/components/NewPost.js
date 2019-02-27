@@ -1,8 +1,34 @@
 import React, { Component } from "react";
-import MainTemplate from "./MainTemplate.js";
+import MenuBar from "./MenuBar.js";
+import "./style/publishPost.css";
+import { Form, TextArea, Button } from "semantic-ui-react";
 
 class NewPost extends Component {
- postData(url, data) {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      name: "",
+      breed: "",
+      story: ""
+    };
+
+    this.handleStory = this.handleStory.bind(this);
+    this.handleName = this.handleName.bind(this);
+    this.handleBreed = this.handleBreed.bind(this);
+  }
+
+  handleStory(event) {
+    this.setState({ story: event.target.value });
+  }
+  handleName(event) {
+    this.setState({ name: event.target.value });
+  }
+  handleBreed(event) {
+    this.setState({ breed: event.target.value });
+  }
+
+  postData(url, data) {
     // Default options are marked with *
     return fetch(url, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
@@ -22,73 +48,62 @@ class NewPost extends Component {
   onCreatePost(event) {
     event.preventDefault();
 
-    if (!this.myInputText) {
-      return;
-    }
-
     // Post
     console.log("Send the post");
-    this.postData("/api/createNewPost", 
-      {
-        text:this.myInputText.value, 
-        name:this.author.value, 
-        breed:this.breed.value
-      })
-      .then((result) => {
-        //clearing the input
-        this.author.value="";
-        this.breed.value="";
-        this.myInputText.value="";
-
-        this.props.history.push("/app");
-      });
+    this.postData("/api/createNewPost", {
+      story: this.state.story,
+      name: this.state.name,
+      breed: this.state.breed
+    }).then(result => {
+      this.props.history.push("/app");
+    });
   }
 
   render() {
     console.log("Rendering");
 
     return (
-      <MainTemplate>
-        <div className="NewPost">
-
-          <h2>Create comments</h2>
-          <form onSubmit={this.onCreatePost.bind(this)}>
-            <div>
-              <label htmlFor="inAuthor"> Name
-                <input
-                  id="inAuthor"
-                  type="text"
-                  name="name"
-                  ref = {input => this.author = input}
-                />
-              </label>
+      <div className="NewPost">
+        <MenuBar />
+        <br />
+        <div className="container">
+          <Form
+            className="formInPost"
+            size="big"
+            onSubmit={this.onCreatePost.bind(this)}
+          >
+            <Form.Field
+              width={6}
+              label="Name"
+              control="input"
+              placeholder="The name of your puppy"
+              onChange={this.handleName}
+              required
+            />
+            <Form.Field
+              width={6}
+              label="Breed"
+              control="input"
+              placeholder="Breed"
+              onChange={this.handleBreed}
+              required
+            />
+            <Form.Field
+              width={6}
+              id="form-textarea-control-opinion"
+              control={TextArea}
+              label="Type the Story of Your Dogs"
+              placeholder="If your dog can speak..."
+              onChange={this.handleStory}
+              required
+            />
+            <div className="mb-5">
+              <input type="submit" value="Submit" />
             </div>
-            <div>
-              <label htmlFor="inBreed"> Breed
-                <input
-                  id="inBreed"
-                  type="text"
-                  name="breed"
-                  ref = {input => this.breed = input}
-                />
-              </label>
-            </div>
-            <div>
-              <label htmlFor="inStory"> Story:
-                <input
-                  id="inStory"
-                  type="text"
-                  name="text"
-                  ref = { input => this.myInputText = input}
-                />
-              </label>
-            </div>
-
-            <input type="submit" value="Submit" />
-          </form>
-
+          </Form>
+          <br />
         </div>
-      </MainTemplate>
+      </div>
     );
   }
 }

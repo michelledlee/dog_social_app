@@ -12,30 +12,42 @@ export default class Post extends Component {
     };
 
     this.onClick = this.onClick.bind(this);
-  }
+
+    };
 
   onClick() {
     this.setState({
-      votes: this.state.votes+1
+      votes: this.state.votes + 1
     });
   }
 
+  
+
   render() {
+    const borderColor = ["info", "warning", "danger", "success", "secondary", "primary"];
+    let randomIndex = Math.floor(borderColor.length * Math.random());
+    let randomBorder = borderColor[randomIndex];
+
     return (
-      <Card style={{ width: "18rem" }}>
-        
-        <Card.Body>
-        <Card.Title>{this.props.post.name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{this.props.post.breed}</Card.Subtitle>
-          <Card.Text>
-            <span>{this.props.post.text}</span>
-          </Card.Text>
-          <Button variant="outline-danger" onClick = {this.onClick}>
-            
-            <span>Like  {this.state.votes}</span>
-          </Button>
-        </Card.Body>
-      </Card>
+          <div className="col-md-6 col-lg-4 mb-3">
+            <Card border={randomBorder}>
+              <Card.Header>{this.props.post.name}</Card.Header>
+              <Card.Body>
+
+                <Card.Subtitle className="mb-2 text-muted">
+                  {this.props.post.breed}
+                </Card.Subtitle>
+
+                <Card.Text>
+                  <span>{this.props.post.story}</span>
+                </Card.Text>
+
+                <Button variant="outline-danger" onClick={this.onClick}>
+                  <span>Like {this.state.votes}</span>
+                </Button>
+              </Card.Body>
+            </Card>
+          </div>
     );
   }
 }
@@ -43,7 +55,3 @@ export default class Post extends Component {
 Post.propTypes = {
   post: PropTypes.object.isRequired
 };
-
-
-
-

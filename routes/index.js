@@ -48,7 +48,7 @@ router.post('/createNewPost', (req, res) => {
   createPost({
     name:req.body.name,
     breed:req.body.breed,
-    text:req.body.text
+    story:req.body.story
   }, function (result) {
 
     res.send(result);

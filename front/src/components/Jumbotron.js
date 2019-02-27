@@ -1,20 +1,24 @@
 import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
-import Jumbotron from "react-bootstrap/Jumbotron";
 import "./style/jumbotron.css";
 
 class Jumbo extends Component {
   render() {
-    return (    
-      <Jumbotron className="Jumbotron">
-        <h1>Welcome to dog social app</h1>
-        <p>
-          The cuttest dog social app for dogs.
-        </p>
-        <p>
-          <Button variant="primary"  href="/app/new">Add new post</Button>
-        </p>
-      </Jumbotron>
+    return (
+      <div
+        className="jumbotron text-center d-flex align-items-center justify-content-center"
+        id="header"
+      >
+        <div>
+          <h1>If Dogs Can Speak</h1>
+          <p className="lead">The cuttest social app for dogs.</p>
+          <p>
+            <Button variant="light" size="lg" href="/app/new">
+              Add a new post
+            </Button>
+          </p>
+        </div>
+      </div>
     );
   }
 }

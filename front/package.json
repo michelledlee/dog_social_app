@@ -5,13 +5,18 @@
   "proxy": "http://localhost:3001",
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "jss": "^9.8.7",
+    "jss-preset-default": "^10.0.0-alpha.7",
     "materialize-css": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
     "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.8.3",
+    "react-jss": "^8.6.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.85.0"
   },
   "scripts": {
     "start": "react-scripts start",

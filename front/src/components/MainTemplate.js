@@ -1,33 +1,31 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import MenuBar from "./MenuBar.js";
+import "./style/MainTemplate.css";
 
 export default class MainTemplate extends Component {
   render() {
     return (
-      <div>
+    <div id="mainTemplate">
 
         <MenuBar />
 
         {this.props.children}
 
-
-        <footer>
-          This is space for footer{" "}
-          <span role="img" aria-label="heart emoji">
-            ♥️
-          </span>
-        </footer>
+        <div className="text-center mt-5 mb-5 bottom" >
+            <i class="fas fa-dog fa-3x" ></i>
+            <br/><br/>
+            <p>Love me? Talk to me</p>
+        </div>
 
       </div>
-
+     
     );
   }
 }
 
-
 MainTemplate.propTypes = {
-  children:  PropTypes.oneOfType([
+  children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired
