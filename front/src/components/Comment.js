@@ -25,7 +25,8 @@ export default class Comment extends Component {
       <Card style={{ width: "18rem" }}>
         
         <Card.Body>
-          <span>{this.props.comment.name}</span>
+        <Card.Title>{this.props.comment.name}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">{this.props.comment.breed}</Card.Subtitle>
           <Card.Text>
             <span>{this.props.comment.text}</span>
           </Card.Text>

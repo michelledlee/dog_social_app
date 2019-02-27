@@ -27,7 +27,7 @@ function getComments(callback) {
       .limit(100)
       .toArray(function (err, docs) {
         if (err !== null) throw err;
-        console.log("got " + docs.length + " comments");
+        console.log("got " + docs.length + " posts");
         callback(docs);
         client.close();
       });
@@ -51,7 +51,8 @@ function createComment(c, callback) {
 router.post('/createMessage', function(req, res, next) {
   createComment({
     text:req.body.text,
-    name:req.body.name
+    name:req.body.name,
+    breed:req.body.breed
   }, function (result) {
 
     console.log("Inserted, sending result");

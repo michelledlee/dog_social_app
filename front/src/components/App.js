@@ -12,9 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-
     this.myInputText = null;
-
 
     this.state = {
       dogs: []
@@ -67,12 +65,18 @@ class App extends Component {
 
     // Post
     console.log("Send the post");
-    this.postData("/api/createMessage", {text:this.myInputText.value, name:this.author.value})
+    this.postData("/api/createMessage", 
+      {
+        text:this.myInputText.value, 
+        name:this.author.value, 
+        breed:this.breed.value
+      })
       .then((result) => {
         console.log("Inserted the data!!", result);
 
         //clearing the input
         this.author.value="";
+        this.breed.value="";
         this.myInputText.value="";
         // Redraw
         console.log("Reload data");
@@ -91,14 +95,23 @@ class App extends Component {
           <h2>Create comments</h2>
           <form onSubmit={this.onCreateComment.bind(this)}>
             <div>
-              <label htmlFor="inAuthor"> Author
+              <label htmlFor="inAuthor"> Name
                 <input
                   id="inAuthor"
                   type="text"
-                  name="author"
-                  ref = {name => this.author = name}
+                  name="name"
+                  ref = {input => this.author = input}
                 />
-                {/* Remember to add the ref */ }
+              </label>
+            </div>
+            <div>
+              <label htmlFor="inBreed"> Breed
+                <input
+                  id="inBreed"
+                  type="text"
+                  name="breed"
+                  ref = {input => this.breed = input}
+                />
               </label>
             </div>
             <div>
