@@ -5,13 +5,43 @@ class NewPost extends Component {
   constructor(props) {
     super(props);
 
-
     this.myInputText = null;
 
-
     this.state = {
-      comments: []
+      dogs: []
     };
+  }
+
+  componentDidMount() {
+    this.reloadData();
+  }
+
+  reloadData() {
+    fetch("/api/getMessages")
+      .then(res => res.json())
+      .then(data => {
+        console.log("got data!", data);
+        this.setState({
+          dogs: data
+        });
+      });
+  }
+
+ postData(url, data) {
+    // Default options are marked with *
+    return fetch(url, {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      // mode: "cors", // no-cors, cors, *same-origin
+      // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      // credentials: "same-origin", // include, *same-origin, omit
+      headers: {
+        "Content-Type": "application/json"
+        // "Content-Type": "application/x-www-form-urlencoded",
+      },
+      // redirect: "follow", // manual, *follow, error
+      // referrer: "no-referrer", // no-referrer, *client
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    }).then(response => response.json()); // parses response to JSON
   }
 
   onCreateComment(event) {
@@ -24,23 +54,23 @@ class NewPost extends Component {
 
     // Post
     console.log("Send the post");
-    fetch("/api/createMessage", {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({text:this.myInputText.value})
-    }).then(response => response.json())
+    this.postData("/api/createMessage", 
+      {
+        text:this.myInputText.value, 
+        name:this.author.value, 
+        breed:this.breed.value
+      })
       .then((result) => {
         console.log("Inserted the data!!", result);
 
         //clearing the input
+        this.author.value="";
+        this.breed.value="";
         this.myInputText.value="";
         // Redraw
         console.log("Reload data");
-        // this.reloadData();
+        this.reloadData();
       });
-
   }
 
   render() {
@@ -50,41 +80,40 @@ class NewPost extends Component {
       <MainTemplate>
         <div className="NewPost">
 
-          <h2>Create a new post</h2>
+          <h2>Create comments</h2>
           <form onSubmit={this.onCreateComment.bind(this)}>
             <div>
-              <label htmlFor="inBreed"> Name 
+              <label htmlFor="inAuthor"> Name
                 <input
-                  id="inName"
+                  id="inAuthor"
                   type="text"
                   name="name"
+                  ref = {input => this.author = input}
                 />
-                {/* TODO: Remember to add the ref */ }
               </label>
             </div>
             <div>
-              <label htmlFor="inBreed"> Breed 
+              <label htmlFor="inBreed"> Breed
                 <input
                   id="inBreed"
                   type="text"
                   name="breed"
+                  ref = {input => this.breed = input}
                 />
-                {/* TODO: Remember to add the ref */ }
               </label>
             </div>
             <div>
-              <label htmlFor="inComment"> Story 
+              <label htmlFor="inStory"> Story:
                 <input
-                  id="inComment"
+                  id="inStory"
                   type="text"
-                  name="story"
+                  name="text"
                   ref = { input => this.myInputText = input}
                 />
               </label>
             </div>
 
             <input type="submit" value="Submit" />
-            {/* TODO: Should redirect to app page */ }
           </form>
 
         </div>
