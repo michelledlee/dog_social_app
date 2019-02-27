@@ -10,11 +10,11 @@ class Landing extends Component {
     	<Nav className="justify-content-end" activeKey="/home">
     
     		<Nav.Item>
-      			<Nav.Link href="/register">Signup <i class="fa fa-user-plus"></i>
+      			<Nav.Link href="/">Signup <i class="fa fa-user-plus"></i>
       			</Nav.Link>
     		</Nav.Item>
     		<Nav.Item>
-      			<Nav.Link href="/login">Login <i class="fa fa-user"></i>
+      			<Nav.Link href="/">Login <i class="fa fa-user"></i>
       			</Nav.Link>
     		</Nav.Item>
 

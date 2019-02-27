@@ -44,6 +44,12 @@ class App extends Component {
 
 
   render() {
+    let filterPost = this.state.posts.filter(
+      (post) => {
+        return post.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+      }
+    );
+
     return (
       <MainTemplate>
         <Jumbo />
@@ -57,7 +63,7 @@ class App extends Component {
           onChange={this.updateSearch.bind(this)} />
             
           <div className="row">
-          {this.state.posts.map((p, i) => <Post key={i++} post={p} />)}
+          {filterPost.map((p, i) => <Post key={i++} post={p} />)}
           </div>        
 
         </div>

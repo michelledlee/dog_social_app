@@ -11,19 +11,17 @@ function connect(callback) {
   client.connect(function (err) {
     if (err !== null) throw err;
 
-    var db = client.db("dbComments");
-    var comments = db.collection("comments");
+    var db = client.db("dbDogs");
+    var dogposts = db.collection("dogposts");
 
     console.log("Connected!");
-    callback(comments, client);
+    callback(dogposts, client);
   });
 }
 
-
-function getComments(callback) {
-
-  connect(function (comments, client) {
-    comments.find({})
+function getAllPosts(callback) {
+  connect(function (dogposts, client) {
+    dogposts.find({})
       .limit(100)
       .toArray(function (err, docs) {
         if (err !== null) throw err;
@@ -35,12 +33,10 @@ function getComments(callback) {
 
 }
 
-function createComment(c, callback) {
-  connect(function (comments, client) {
-    comments.insertOne(c, function (err, result) {
+function createPost(c, callback) {
+  connect(function (dogposts, client) {
+    dogposts.insertOne(c, function (err, result) {
       if (err!==null) throw err;
-
-      console.log("Inserted!!!");
 
       callback(result);
     });
@@ -48,25 +44,22 @@ function createComment(c, callback) {
 }
 
 
-router.post('/createMessage', function(req, res, next) {
-  createComment({
-    text:req.body.text,
+router.post('/createNewPost', (req, res) => {
+  createPost({
     name:req.body.name,
-    breed:req.body.breed
+    breed:req.body.breed,
+    text:req.body.text
   }, function (result) {
 
-    console.log("Inserted, sending result");
     res.send(result);
   });
 
 });
 
-router.get('/getMessages', function(req, res, next) {
-  console.log("getMessages!!!!");
-  getComments( function (docs) {
+router.get('/getPosts', (req, res) => {
+  getAllPosts((docs) => {
     res.send(docs);
   });
-
 });
 
 
