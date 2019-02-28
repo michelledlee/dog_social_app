@@ -2,7 +2,12 @@
   "name": "livenodeexpressreactmongo",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "10.15.0",
+    "yarn": "1.13.0"
+  },
   "scripts": {
+    "heroku-postbuild": "cd front && yarn install && yarn build",
     "start": "node ./bin/www"
   },
   "dependencies": {
