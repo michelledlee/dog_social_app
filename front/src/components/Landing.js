@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Button from 'react-bootstrap/Button'
 import "./style/landing.css";
 import Nav from 'react-bootstrap/Nav';
+import { Link } from 'react-router-dom';
 
 class Landing extends Component {
   render() {
@@ -26,6 +27,7 @@ class Landing extends Component {
 		  <hr/>
     	</div>
     	<div className="woof">
+      <Link to="/app"><i class="fas fa-dog"> : woof</i></Link>
     		<Button href="/app"  variant="light" size="lg"><i class="fas fa-dog"> : woof</i></Button>
     	</div>
     </div>

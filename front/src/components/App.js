@@ -4,6 +4,7 @@ import Jumbo from "./Jumbotron.js";
 import Post from "./Post.js";
 import MainTemplate from "./MainTemplate.js";
 import { Icon, Input } from "semantic-ui-react";
+import CardColumns from "react-bootstrap/CardColumns";
 
 class App extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class App extends Component {
   render() {
     let filterPost = this.state.posts.filter(post => {
       return (
-        post.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+        post.breed.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
       );
     });
 
@@ -61,9 +62,11 @@ class App extends Component {
           </div>
 
           <div className="row">
+          <CardColumns>
             {filterPost.map((p, i) => (
               <Post key={i++} post={p} />
             ))}
+          </CardColumns>            
           </div>
         </div>
 

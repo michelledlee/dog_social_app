@@ -1,4 +1,4 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
 function connect(callback) {
@@ -25,12 +25,11 @@ function getAllPosts(callback) {
       .limit(100)
       .toArray(function (err, docs) {
         if (err !== null) throw err;
-        console.log("got " + docs.length + " posts");
+    
         callback(docs);
         client.close();
       });
   });
-
 }
 
 function createPost(c, callback) {
@@ -44,11 +43,12 @@ function createPost(c, callback) {
 }
 
 
-router.post('/createNewPost', (req, res) => {
+router.post("/createNewPost", (req, res) => {
   createPost({
     name:req.body.name,
     breed:req.body.breed,
-    story:req.body.story
+    story:req.body.story,
+    votes:0
   }, function (result) {
 
     res.send(result);
@@ -56,11 +56,19 @@ router.post('/createNewPost', (req, res) => {
 
 });
 
-router.get('/getPosts', (req, res) => {
+router.get("/getPosts", (req, res) => {
   getAllPosts((docs) => {
     res.send(docs);
   });
 });
+
+router.post("/updateVotes", (req, res) => {
+  
+})
+
+router.get("/getVotes", (req, res) => {
+
+})
 
 
 module.exports = router;

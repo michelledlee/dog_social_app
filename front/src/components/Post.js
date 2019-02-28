@@ -21,6 +21,37 @@ export default class Post extends Component {
     });
   }
 
+  getVotes() {
+    fetch("/api/getVotes")
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          votes: data.votes
+        });
+      });
+  }
+
+  postData(url, data) {  
+    return fetch(url, {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+     
+      headers: {
+        "Content-Type": "application/json"
+        // "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    }).then(response => response.json()); // parses response to JSON
+  }
+
+  updateVotes(event) {
+    event.preventDefault();
+
+    console.log("Update the votes");
+
+    this.postData("/api/updateVotes", {
+      votes: this.state.votes
+    });
+  }
   
 
   render() {
@@ -29,7 +60,7 @@ export default class Post extends Component {
     let randomBorder = borderColor[randomIndex];
 
     return (
-          <div className="col-md-6 col-lg-4 mb-3">
+         
             <Card border={randomBorder}>
               <Card.Header>{this.props.post.name}</Card.Header>
               <Card.Body>
@@ -47,7 +78,7 @@ export default class Post extends Component {
                 </Button>
               </Card.Body>
             </Card>
-          </div>
+       
     );
   }
 }
