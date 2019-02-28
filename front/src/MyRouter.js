@@ -7,7 +7,7 @@ import MainTemplate from "./components/MainTemplate.js";
 import Landing from "./components/Landing.js";
 import NewPost from "./components/NewPost.js";
 
-const NoMatch = (location) => (
+const NoMatch = location => (
   <div>
     <MainTemplate>
       <h3>
@@ -17,15 +17,14 @@ const NoMatch = (location) => (
   </div>
 );
 
-
- class MyRouter extends Component {
+class MyRouter extends Component {
   render() {
     return (
       <Router>
         <div>
           <Switch>
             <Route exact path="/" component={Landing} />
-          
+
             <Route exact path="/app" component={App} />
             <Route exact path="/app/new" component={NewPost} />
 
@@ -34,8 +33,6 @@ const NoMatch = (location) => (
             <Route component={NoMatch} />
           </Switch>
         </div>
-
-
       </Router>
     );
   }

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import MyRouter from "./MyRouter.js";
 import * as serviceWorker from "./serviceWorker";
-import 'semantic-ui-css/semantic.min.css';
+import "semantic-ui-css/semantic.min.css";
 
 ReactDOM.render(<MyRouter />, document.getElementById("root"));
 

@@ -12,8 +12,7 @@ export default class Post extends Component {
     };
 
     this.onClick = this.onClick.bind(this);
-
-    };
+  }
 
   onClick() {
     this.setState({
@@ -31,10 +30,10 @@ export default class Post extends Component {
       });
   }
 
-  postData(url, data) {  
+  postData(url, data) {
     return fetch(url, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
-     
+
       headers: {
         "Content-Type": "application/json"
         // "Content-Type": "application/x-www-form-urlencoded",
@@ -52,33 +51,36 @@ export default class Post extends Component {
       votes: this.state.votes
     });
   }
-  
 
   render() {
-    const borderColor = ["info", "warning", "danger", "success", "secondary", "primary"];
+    const borderColor = [
+      "info",
+      "warning",
+      "danger",
+      "success",
+      "secondary",
+      "primary"
+    ];
     let randomIndex = Math.floor(borderColor.length * Math.random());
     let randomBorder = borderColor[randomIndex];
 
     return (
-         
-            <Card border={randomBorder}>
-              <Card.Header>{this.props.post.name}</Card.Header>
-              <Card.Body>
+      <Card border={randomBorder}>
+        <Card.Header>{this.props.post.name}</Card.Header>
+        <Card.Body>
+          <Card.Subtitle className="mb-2 text-muted">
+            {this.props.post.breed}
+          </Card.Subtitle>
 
-                <Card.Subtitle className="mb-2 text-muted">
-                  {this.props.post.breed}
-                </Card.Subtitle>
+          <Card.Text>
+            <span>{this.props.post.story}</span>
+          </Card.Text>
 
-                <Card.Text>
-                  <span>{this.props.post.story}</span>
-                </Card.Text>
-
-                <Button variant="outline-danger" onClick={this.onClick}>
-                  <span>Like {this.state.votes}</span>
-                </Button>
-              </Card.Body>
-            </Card>
-       
+          <Button variant="outline-danger" onClick={this.onClick}>
+            <span>Like {this.state.votes}</span>
+          </Button>
+        </Card.Body>
+      </Card>
     );
   }
 }

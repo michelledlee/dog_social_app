@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
 import "./style/jumbotron.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class Jumbo extends Component {
   render() {
@@ -14,10 +14,11 @@ class Jumbo extends Component {
           <h1>If Dogs Can Talk</h1>
           <p className="lead">The cuttest social app for dogs.</p>
           <p>
-           <Link to="/app/new">
-           <Button variant="light" size="lg" href="/app/new">
-              Add a new post
-            </Button></Link>
+            <Link to="/app/new">
+              <Button variant="light" size="lg" href="/app/new">
+                Add a new post
+              </Button>
+            </Link>
           </p>
         </div>
       </div>

@@ -6,20 +6,18 @@ import "./style/MainTemplate.css";
 export default class MainTemplate extends Component {
   render() {
     return (
-    <div id="mainTemplate">
-
+      <div id="mainTemplate">
         <MenuBar />
 
         {this.props.children}
 
-        <div className="text-center mt-5 mb-5 bottom" >
-            <i class="fas fa-dog fa-3x" ></i>
-            <br/><br/>
-            <p>Love me? Talk to me</p>
+        <div className="text-center mt-5 mb-5 bottom">
+          <i class="fas fa-dog fa-3x" />
+          <br />
+          <br />
+          <p>Love me? Talk to me</p>
         </div>
-
       </div>
-     
     );
   }
 }

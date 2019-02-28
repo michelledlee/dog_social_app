@@ -62,14 +62,13 @@ class App extends Component {
           </div>
 
           <div className="row">
-          <CardColumns>
-            {filterPost.map((p, i) => (
-              <Post key={i++} post={p} />
-            ))}
-          </CardColumns>            
+            <CardColumns>
+              {filterPost.map((p, i) => (
+                <Post key={i++} post={p} />
+              ))}
+            </CardColumns>
           </div>
         </div>
-
       </MainTemplate>
     );
   }
