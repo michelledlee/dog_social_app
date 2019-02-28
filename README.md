@@ -14,6 +14,11 @@
 
   CS5610 Course Link: http://johnguerra.co/classes/webDevelopment_spring_2019/ Love Professor John!
 
+## Instructions
+
+Users can post stories on befalf of their dogs. Other users who like the story will give it a like. 
+Users can also search for some specific content they are interested in.
+
 
 ## Technologies
 
@@ -28,7 +33,7 @@
 - Git
 
 ## Video and Slides
-Video demo of this project can be found [here](https://youtu.be/k_eF_y8wGkQ). 
+Video demo of this project can be found [here](https://youtu.be/lGcDKlrpaZg). 
 
 Slide of this project can be found [here](https://docs.google.com/presentation/d/17vlSNo488lnpI5C4PXtUk3kNIzWxC-7fUv9CdBBeZhg/edit#slide=id.p).
 
