@@ -1,8 +1,8 @@
 # [If Dogs Can Talk](https://qimincao.github.io/HomePage_Karen/)
 
 ## Author
-[Karen Cao](https://qimincao.github.io/HomePage_Karen/)
-[Freddy Lyu](https://freddydoesit.github.io/freddy/)
+- [Karen Cao](https://qimincao.github.io/HomePage_Karen/)
+- [Freddy Lyu](https://freddydoesit.github.io/freddy/)
 
 ## Screenshot
 ### screen
@@ -33,7 +33,7 @@ Video demo of this project can be found [here](https://youtu.be/k_eF_y8wGkQ).
 Slide of this project can be found [here](https://docs.google.com/presentation/d/17vlSNo488lnpI5C4PXtUk3kNIzWxC-7fUv9CdBBeZhg/edit#slide=id.p).
 
 
-## :exclamation: License
+## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This repository has the standard [MIT license](https://opensource.org/licenses/MIT). 
