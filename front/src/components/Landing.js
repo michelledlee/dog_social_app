@@ -27,8 +27,8 @@ class Landing extends Component {
 		  <hr/>
     	</div>
     	<div className="woof">
-      <Link to="/app"><i class="fas fa-dog"> : woof</i></Link>
-    		<Button href="/app"  variant="light" size="lg"><i class="fas fa-dog"> : woof</i></Button>
+      <Link to="/app"><Button variant="light" size="lg"><i class="fas fa-dog"> : woof</i></Button></Link>
+    		
     	</div>
     </div>
          
