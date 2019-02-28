@@ -4,9 +4,9 @@
 [Karen Cao](https://qimincao.github.io/HomePage_Karen/)
 [Freddy Lyu](https://freddydoesit.github.io/freddy/)
 
-## Project Preview
-
-
+## Screenshot
+### screen
+![screenshot](imgs/GifForP2.gif)
 
 ## Project Objective
 1. Gaining hands on experience of learning MERN (MongoDB, Express, React, NodeJS) stack technology.
