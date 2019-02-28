@@ -16,7 +16,7 @@
 
 ## Instructions
 
-Users can post stories on befalf of their dogs. Other users who like the story will give it a like. 
+Users can post stories on behalf of their dogs. Other users who like the story will give it a like. 
 Users can also search for some specific content they are interested in.
 
 
