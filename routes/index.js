@@ -5,7 +5,6 @@ function connect(callback) {
   var MongoClient = require("mongodb").MongoClient;
 
   var dbURI = process.env.MONGODB_URI || require("../config/keys.js") || "mongodb://localhost:27017";
-  // var url = "mongodb://localhost:27017";
 
   var client = new MongoClient(dbURI);
 
@@ -61,14 +60,6 @@ router.get("/getPosts", (req, res) => {
     res.send(docs);
   });
 });
-
-router.post("/updateVotes", (req, res) => {
-  
-})
-
-router.get("/getVotes", (req, res) => {
-
-})
 
 
 module.exports = router;
