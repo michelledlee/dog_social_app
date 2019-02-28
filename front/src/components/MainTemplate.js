@@ -12,7 +12,7 @@ export default class MainTemplate extends Component {
         {this.props.children}
 
         <div className="text-center mt-5 mb-5 bottom">
-          <i class="fas fa-dog fa-3x" />
+          <i className="fas fa-dog fa-3x" />
           <br />
           <br />
           <p>Love me? Talk to me</p>

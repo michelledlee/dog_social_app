@@ -8,31 +8,14 @@ export default class Post extends Component {
     super(props);
 
     this.state = {
-      votes: 0
+      _id: this.props.post._id,
+      votes: this.props.post.votes
     };
-
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onClick() {
-    this.setState({
-      votes: this.state.votes + 1
-    });
-  }
-
-  getVotes() {
-    fetch("/api/getVotes")
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          votes: data.votes
-        });
-      });
   }
 
   postData(url, data) {
     return fetch(url, {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      method: "PUT", // *GET, POST, PUT, DELETE, etc.
 
       headers: {
         "Content-Type": "application/json"
@@ -45,12 +28,21 @@ export default class Post extends Component {
   updateVotes(event) {
     event.preventDefault();
 
-    console.log("Update the votes");
+    console.log("Update the votes in front end");
+    console.log(this.state._id);
 
     this.postData("/api/updateVotes", {
-      votes: this.state.votes
+      id: this.state._id,
+      votes: this.state.votes + 1
+    }).then( data => {
+      if (data.ok === 1) {
+        this.setState({
+          votes: this.state.votes + 1
+        });
+      }
     });
   }
+  
 
   render() {
     const borderColor = [
@@ -76,7 +68,7 @@ export default class Post extends Component {
             <span>{this.props.post.story}</span>
           </Card.Text>
 
-          <Button variant="outline-danger" onClick={this.onClick}>
+          <Button variant="outline-danger" onClick={this.updateVotes.bind(this)}>
             <span>Like {this.state.votes}</span>
           </Button>
         </Card.Body>

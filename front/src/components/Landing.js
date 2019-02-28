@@ -8,15 +8,15 @@ class Landing extends Component {
   render() {
     return (
       <div className="landing">
-        <Nav className="justify-content-end" activeKey="/home">
+        <Nav className="justify-content-end">
           <Nav.Item>
             <Nav.Link href="/">
-              Signup <i class="fa fa-user-plus" />
+              Signup <i className="fa fa-user-plus" />
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="/">
-              Login <i class="fa fa-user" />
+              Login <i className="fa fa-user" />
             </Nav.Link>
           </Nav.Item>
         </Nav>
@@ -29,7 +29,7 @@ class Landing extends Component {
         <div className="woof">
           <Link to="/app">
             <Button variant="light" size="lg">
-              <i class="fas fa-dog"> : woof</i>
+              <i className="fas fa-dog"> : woof</i>
             </Button>
           </Link>
         </div>
