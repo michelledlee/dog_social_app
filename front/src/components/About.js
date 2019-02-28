@@ -62,7 +62,8 @@ export default class AboutPage extends Component {
 									</Card.Text>
 									<Button
 										variant="primary"
-										href="www.google.com"
+										href="https://freddydoesit.github.io/freddy/"
+										target="_blank"
 									>
 										Personal Webpage
 									</Button>
@@ -83,7 +84,9 @@ export default class AboutPage extends Component {
 									<Card.Text>
 										<p>Husky is so cute.</p>
 									</Card.Text>
-									<Button variant="primary">
+									<Button variant="primary"
+									href="https://qimincao.github.io/HomePage_Karen/"
+									target="_blank">
 										Personal Webpage
 									</Button>
 								</Card.Body>
