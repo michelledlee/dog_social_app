@@ -4,7 +4,7 @@ var router = express.Router();
 function connect(callback) {
   var MongoClient = require("mongodb").MongoClient;
 
-  var dbURI = process.env.MONGODB_URI || require("../config/keys.js");
+  var dbURI = process.env.MONGODB_URI || require("../config/keys.js") || "mongodb://localhost:27017";
   // var url = "mongodb://localhost:27017";
 
   var client = new MongoClient(dbURI);
@@ -15,9 +15,8 @@ function connect(callback) {
     var db = client.db("dbDogs");
     var dogposts = db.collection("dogposts");
 
-    console.log("Connected!");
     callback(dogposts, client);
-  });
+  }, { useNewUrlParser: true });
 }
 
 function getAllPosts(callback) {
