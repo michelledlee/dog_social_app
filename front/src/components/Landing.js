@@ -21,7 +21,7 @@ class Landing extends Component {
   		</Nav>
 
     	<div className="content">
-    	  <h1>If Dogs Can Speak</h1>
+    	  <h1>If Dogs Can Talk</h1>
 		  <h3>The Cutties Social App for Dogs</h3>
 		  <hr/>
     	</div>

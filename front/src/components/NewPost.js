@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import MenuBar from "./MenuBar.js";
 import "./style/publishPost.css";
-import { Form, TextArea, Button } from "semantic-ui-react";
+import { Form, TextArea } from "semantic-ui-react";
 
 class NewPost extends Component {
   constructor(props) {

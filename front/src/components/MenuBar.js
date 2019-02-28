@@ -7,7 +7,7 @@ export default class MenuBar extends Component {
     return (
       <div>
         <Navbar bg="dark" variant="dark" fixed="top">
-          <Navbar.Brand href="/">DogApp</Navbar.Brand>
+          <Navbar.Brand href="/">Woof:</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/app">Home</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>

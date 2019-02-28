@@ -10,7 +10,7 @@ class Jumbo extends Component {
         id="header"
       >
         <div>
-          <h1>If Dogs Can Speak</h1>
+          <h1>If Dogs Can Talk</h1>
           <p className="lead">The cuttest social app for dogs.</p>
           <p>
             <Button variant="light" size="lg" href="/app/new">
