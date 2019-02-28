@@ -19,6 +19,16 @@
 Users can post stories on behalf of their dogs. Other users who like the story will give it a like. 
 Users can also search for some specific content they are interested in.
 
+On the landing page, click "woof" button to enter the main page.
+
+On the main page, top is the navbar. Woof to the landing page, home to the main page, and about to the information page.
+
+Click the "add a new post" in the jumbotron of main page to add a new post.
+
+On the create-a-new-post page, type dog's name, breed, his/her story, and click "submit" to submit your dog's stories and you will be redirected to the main page. You will see your posts on the main page.
+
+In the search bar, you can type in to search. 
+
 
 ## Technologies
 
