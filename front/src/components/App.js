@@ -32,6 +32,7 @@ class App extends Component {
       });
   }
 
+  // Nice start to the search event, it does display what the person is searching for but does not appear to work yet
   updateSearch(event) {
     this.setState({ search: event.target.value.substring(0, 20) });
     console.log(event.target.value);
