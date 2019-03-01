@@ -4,6 +4,7 @@ import "./style/landing.css";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 
+// It's great that you started thinking about Signup and Login. Would users still be able to post without an account?
 class Landing extends Component {
   render() {
     return (
