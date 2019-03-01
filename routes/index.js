@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var objectId = require("mongodb").ObjectID;
 
+// Nice job. New posts are added smoothly and voting happens almost instantaneously. 
 function connect(callback) {
 	var MongoClient = require("mongodb").MongoClient;
 
